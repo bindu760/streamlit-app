@@ -1,0 +1,65 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# Virtual Environment
+# =========================
+env/
+venv/
+ENV/
+.env
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/
+
+# =========================
+# Data (IMPORTANT for your project)
+# =========================
+data/
+*.json
+*.csv
+
+# scraped outputs
+scraper_output/
+structured_data.json
+data/structured_data.json
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Selenium / Chrome
+# =========================
+chromedriver*
+*.selenium
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Llama / API keys
+# =========================
+*.env
