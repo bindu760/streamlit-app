@@ -71,6 +71,15 @@ load_dotenv()
 
 st.set_page_config(page_title="LICT AI Assistant", page_icon="🤖", layout="wide")
 
+# ---- Custom CSS injection (design-only, no logic touched) ----
+def load_custom_css():
+    css_path = "style.css"
+    if os.path.exists(css_path):
+        with open(css_path, "r", encoding="utf-8") as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_custom_css()
+
 # Persistent Session States
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -156,25 +165,46 @@ def process_groq_rag(user_query, history_context, language):
 # --- VIEW RENDERING LOGIC ---
 if not st.session_state.logged_in:
     # -------------------------------------------------------------
-    # LOGIN / REGISTER SPLIT SCREEN UI (Your Custom Layout Design)
+    # LOGIN / REGISTER SPLIT SCREEN UI (Design updated to match reference image)
     # -------------------------------------------------------------
     left_col, right_col = st.columns([1.2, 1], gap="large")
     
     with left_col:
-        st.markdown("<br><br>", unsafe_allow_html=True)
-        # Custom Brand styling to match your picture assets
-        st.markdown("<h1>🤖 LICT AI Assistant</h1>", unsafe_allow_html=True)
-        st.markdown("<h3 style='color:gray;'>Intelligent Document Assistant</h3>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("""
+            <div class="brand-icon">🤖</div>
+            <h1 style="margin-bottom:0;">LICT AI Assistant</h1>
+            <h3 style="margin-top:4px;">Intelligent Document Assistant</h3>
+        """, unsafe_allow_html=True)
+
         st.write("---")
-        
-        st.markdown("### 🛡️ Secure Login")
-        st.caption("Your institutional metrics and session histories remain highly secured and encrypted.")
-        
-        st.markdown("### 🧠 RAG Powered")
-        st.caption("Advanced Retrieval-Augmented Generation matching official college database pipelines.")
-        
-        st.markdown("### 💬 AI Assistant")
-        st.caption("Get immediate responsive query structural solutions instantly.")
+
+        st.markdown("""
+            <div class="feature-row">
+                <div class="feature-icon icon-green">🛡️</div>
+                <div>
+                    <div class="feature-title">Secure Login</div>
+                    <div class="feature-desc">Your institutional metrics and session histories remain highly secured and encrypted.</div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-icon icon-blue">🌐</div>
+                <div>
+                    <div class="feature-title">RAG Powered</div>
+                    <div class="feature-desc">Advanced Retrieval-Augmented Generation matching official college database pipelines.</div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-icon icon-purple">💬</div>
+                <div>
+                    <div class="feature-title">AI Assistant</div>
+                    <div class="feature-desc">Get immediate responsive query structural solutions instantly.</div>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
         
     with right_col:
         st.markdown("<br><br>", unsafe_allow_html=True)
