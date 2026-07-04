@@ -265,7 +265,6 @@ else:
     st.title("⚡ LICT Instant AI Portal")
     st.caption(f"Active Session: `{st.session_state.current_session_id[:8]}...` | Mode: **{selected_lang}**")
     st.divider()
-    st.markdown("### ⚙️ Chat Settings")
      
     current_messages = fetch_session_messages(st.session_state.current_session_id)
     
