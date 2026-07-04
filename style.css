@@ -1,0 +1,234 @@
+/* ============================================
+   LICT AI Assistant - Dark Theme Login UI
+   ============================================ */
+
+/* App background */
+.stApp {
+  background: radial-gradient(circle at 20% 20%, #10132a 0%, #0a0c1a 60%, #060714 100%);
+}
+
+/* Hide default streamlit header/footer clutter */
+header[data-testid="stHeader"] {
+  background: transparent;
+}
+
+/* Main container card look */
+.block-container {
+  max-width: 1000px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: rgba(20, 22, 42, 0.85);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 40px rgba(80, 60, 200, 0.15);
+  margin-top: 2rem;
+}
+
+/* Headings */
+h1 {
+  color: #f5f5fa !important;
+  font-weight: 700 !important;
+}
+
+h2 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+h3 {
+  color: #e2e2ea !important;
+}
+
+/* Caption / subtext */
+.stCaption,
+.stMarkdown p {
+  color: #9a9ab0 !important;
+}
+
+/* Divider line */
+hr {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ---- Feature icon rows (Secure Login / RAG Powered / AI Assistant) ---- */
+.feature-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.feature-icon {
+  min-width: 42px;
+  height: 42px;
+  width: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.icon-green {
+  background: #14432f;
+  color: #34d399;
+}
+
+.icon-blue {
+  background: #142c47;
+  color: #38bdf8;
+}
+
+.icon-purple {
+  background: #2c1f47;
+  color: #a78bfa;
+}
+
+.feature-title {
+  color: #f1f1f6;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.feature-desc {
+  color: #8f8fa6;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Bot avatar top icon */
+.brand-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+}
+
+/* ---- Input fields ---- */
+.stTextInput>div>div>input {
+  background-color: #1a1c33 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 10px !important;
+  color: #f0f0f5 !important;
+  padding: 12px 14px !important;
+}
+
+.stTextInput>div>div>input:focus {
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 1px #7c3aed !important;
+}
+
+.stTextInput label {
+  color: #d0d0dc !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+.stTextInput input::placeholder {
+  color: #63637a !important;
+}
+
+/* ---- Buttons ---- */
+/* Primary gradient button (Login / Complete Registration) */
+button[kind="primary"] {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 12px 0 !important;
+  box-shadow: 0 4px 18px rgba(99, 60, 220, 0.4);
+  transition: opacity 0.2s ease;
+}
+
+button[kind="primary"]:hover {
+  opacity: 0.9;
+}
+
+/* Secondary buttons (Register Here / Back to Login) */
+button[kind="secondary"] {
+  background: transparent !important;
+  border: none !important;
+  color: #8b7bf7 !important;
+  font-weight: 600 !important;
+  padding: 0 !important;
+}
+
+button[kind="secondary"]:hover {
+  color: #a78bfa !important;
+  text-decoration: underline;
+}
+
+/* Checkbox (Remember me) */
+.stCheckbox label p {
+  color: #b0b0c4 !important;
+  font-size: 13px !important;
+}
+
+/* Error / success messages */
+.stAlert {
+  border-radius: 10px !important;
+}
+
+/* ============================================
+   ChatGPT-style Chat Bubbles
+   (User -> right side, Assistant -> left side)
+   ============================================ */
+
+/* Base spacing for every chat row */
+div[data-testid="stChatMessage"] {
+  background: transparent !important;
+  padding: 6px 0 !important;
+  max-width: 100%;
+}
+
+/* Flip the row so the USER avatar + bubble sit on the right */
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {
+  flex-direction: row-reverse;
+}
+
+/* USER bubble content */
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) div[data-testid="stChatMessageContent"] {
+  background: linear-gradient(135deg, #473fee, #a394bc);
+  color: #ffffff !important;
+  border-radius: 16px 16px 4px 16px;
+  padding: 10px 16px;
+  margin-left: auto;
+  max-width: 75%;
+}
+
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) div[data-testid="stChatMessageContent"] p {
+  color: #ffffff !important;
+}
+
+/* ASSISTANT bubble content */
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarAssistant"]) div[data-testid="stChatMessageContent"] {
+  background: #1a1c33;
+  color: #f0f0f5 !important;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px 16px 16px 4px;
+  padding: 10px 16px;
+  margin-right: auto;
+  max-width: 75%;
+}
+
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarAssistant"]) div[data-testid="stChatMessageContent"] p {
+  color: #f0f0f5 !important;
+}
+
+/* Chat input box at the bottom */
+.stChatInput textarea,
+.stChatFloatingInputContainer textarea {
+  background-color: #1a1c33 !important;
+  color: #f0f0f5 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
