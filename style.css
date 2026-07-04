@@ -187,22 +187,37 @@ button[kind="secondary"]:hover {
 div[data-testid="stChatMessage"] {
   background: transparent !important;
   padding: 6px 0 !important;
-  max-width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px;
 }
 
-/* Flip the row so the USER avatar + bubble sit on the right */
+/* USER row: avatar goes to the right, whole group hugs the right edge */
 div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {
   flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+/* ASSISTANT row: normal order, hugs the left edge */
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarAssistant"]) {
+  justify-content: flex-start;
+}
+
+/* Bubble sizes to fit its text instead of stretching full width */
+div[data-testid="stChatMessageContent"] {
+  flex: 0 1 auto !important;
+  width: fit-content !important;
+  max-width: 70% !important;
 }
 
 /* USER bubble content */
 div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) div[data-testid="stChatMessageContent"] {
-  background: linear-gradient(135deg, #473fee, #a394bc);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   color: #ffffff !important;
   border-radius: 16px 16px 4px 16px;
   padding: 10px 16px;
-  margin-left: auto;
-  max-width: 75%;
 }
 
 div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) div[data-testid="stChatMessageContent"] p {
@@ -216,12 +231,33 @@ div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarAssista
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px 16px 16px 4px;
   padding: 10px 16px;
-  margin-right: auto;
-  max-width: 75%;
 }
 
 div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarAssistant"]) div[data-testid="stChatMessageContent"] p {
   color: #f0f0f5 !important;
+}
+
+/* ---- Nicer avatar squares (replace default red/orange emoji tiles) ---- */
+div[data-testid="stChatMessageAvatarAssistant"],
+div[data-testid="stChatMessageAvatarUser"] {
+  flex-shrink: 0 !important;
+  border-radius: 10px !important;
+  width: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Assistant avatar -> brand purple/blue gradient (replaces orange) */
+div[data-testid="stChatMessageAvatarAssistant"] {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+}
+
+/* User avatar -> soft teal/cyan gradient (replaces red) */
+div[data-testid="stChatMessageAvatarUser"] {
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4) !important;
 }
 
 /* Chat input box at the bottom */
